@@ -1,0 +1,51 @@
+{
+  "name": "tuneboss-landing",
+  "version": "1.0.0",
+  "description": "Upcoming",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "lint": "eslint .",
+    "doctor": "react-doctor --no-score --yes",
+    "typecheck": "astro sync && tsc --noEmit"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/peenjeee/tuneboss-landing.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/peenjeee/tuneboss-landing/issues"
+  },
+  "homepage": "https://github.com/peenjeee/tuneboss-landing#readme",
+  "dependencies": {
+    "@astrojs/react": "^6.0.0",
+    "@astrojs/sitemap": "^3.7.3",
+    "astro": "^7.0.3",
+    "framer-motion": "^12.42.0",
+    "gsap": "^3.15.0",
+    "lucide-react": "^1.22.0",
+    "react": "^19.2.7",
+    "react-dom": "^19.2.7",
+    "zod": "^4.4.3"
+  },
+  "devDependencies": {
+    "@astrojs/check": "^0.9.9",
+    "@eslint/js": "^10.0.1",
+    "@tailwindcss/vite": "^4.3.2",
+    "astro-eslint-parser": "^1.4.0",
+    "eslint": "^10.6.0",
+    "eslint-plugin-astro": "^1.7.0",
+    "globals": "^17.7.0",
+    "react-doctor": "^0.5.8",
+    "sharp": "^0.35.2",
+    "tailwindcss": "^4.3.2",
+    "typescript": "^6.0.3",
+    "typescript-eslint": "^8.62.1"
+  }
+}

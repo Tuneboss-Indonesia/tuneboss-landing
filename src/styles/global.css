@@ -1,0 +1,148 @@
+@import "tailwindcss";
+
+/* ─── Custom Fonts ─── */
+@font-face {
+  font-family: "Futura PT";
+  src: url("/fonts/Futura-PT-Book.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Futura PT";
+  src: url("/fonts/Futura-PT-Medium.woff2") format("woff2");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "SQR721";
+  src: url("/fonts/SQR721BE.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* ─── Theme Tokens ─── */
+@theme {
+  --color-tuneboss-orange: #e87a1e;
+  --color-tuneboss-dark: #0a0a0a;
+  --color-tuneboss-red: #e63946;
+  --font-family-futura: "Futura PT", sans-serif;
+  --font-family-sqr: "SQR721", sans-serif;
+}
+
+/* ─── Base Reset ─── */
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  font-family: var(--font-family-futura);
+  background-color: var(--color-tuneboss-dark);
+  color: #ffffff;
+  overflow: hidden;
+}
+
+/* ─── Upcoming Page Animations ─── */
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-12px); }
+}
+
+@keyframes pulse-glow {
+  0%, 100% { opacity: 0.4; filter: blur(60px); }
+  50% { opacity: 0.7; filter: blur(80px); }
+}
+
+@keyframes fade-in-up {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes letter-spacing-expand {
+  from {
+    letter-spacing: 0.2em;
+    opacity: 0;
+  }
+  to {
+    letter-spacing: 0.45em;
+    opacity: 1;
+  }
+}
+
+@keyframes shimmer {
+  0% { background-position: -200% center; }
+  100% { background-position: 200% center; }
+}
+
+@keyframes line-grow {
+  from { transform: scaleX(0); }
+  to { transform: scaleX(1); }
+}
+
+.animate-float {
+  animation: float 4s ease-in-out infinite;
+}
+
+.animate-pulse-glow {
+  animation: pulse-glow 4s ease-in-out infinite;
+}
+
+.animate-fade-in-up {
+  animation: fade-in-up 1s ease-out forwards;
+}
+
+.animate-letter-expand {
+  animation: letter-spacing-expand 1.2s ease-out forwards;
+}
+
+.animate-shimmer {
+  background: linear-gradient(
+    90deg,
+    rgba(232, 122, 30, 0.6) 0%,
+    rgba(255, 255, 255, 0.9) 50%,
+    rgba(232, 122, 30, 0.6) 100%
+  );
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: shimmer 3s linear infinite;
+}
+
+.animate-line-grow {
+  animation: line-grow 1.4s ease-out forwards;
+  animation-delay: 1.6s;
+  transform: scaleX(0);
+}
+
+/* ─── Accessibility: Reduced Motion ─── */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
