@@ -89,7 +89,7 @@ export const Navbar = ({ children, className }: NavbarProps) => {
     <m.div
       ref={ref}
       // IMPORTANT: Change this to class of `fixed` if you want the navbar to be fixed
-      className={cn("fixed inset-x-0 top-10 z-[100] w-full", className)}
+      className={cn("fixed inset-x-0 top-3 md:top-10 z-[100] w-full", className)}
     >
       {React.Children.map(children, (child) =>
         React.isValidElement(child)
@@ -177,7 +177,7 @@ export const MobileNav = ({ children, className, visible }: MobileNavProps) => {
         paddingRight: visible ? "12px" : "0px",
         paddingLeft: visible ? "12px" : "0px",
         borderRadius: visible ? "2rem" : "2rem",
-        y: visible ? 20 : 0,
+        y: 0,
       }}
       transition={{
         type: "spring",

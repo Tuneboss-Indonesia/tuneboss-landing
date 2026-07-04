@@ -6,7 +6,7 @@ import {
 	EmptyHeader,
 	EmptyTitle,
 } from "./empty";
-import { HomeIcon, CompassIcon } from "lucide-react";
+import { HomeIcon } from "lucide-react";
 
 interface ErrorPageProps {
   code?: string;
