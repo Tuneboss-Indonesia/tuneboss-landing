@@ -1,0 +1,18 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import "../../styles/global.css";
+import { ParallaxComponent } from "../../components/ui/parallax-scrolling";
+import { TuneBossNavbar } from "../../components/ui/resizable-navbar";
+import TuneBossFeatures from "../../components/ui/tuneboss-features";
+import { DownloadCTA } from "../../components/ui/download-cta";
+import { StackedCircularFooter } from "../../components/ui/stacked-circular-footer";
+---
+
+<Layout title="TuneBoss ID | Home">
+  <TuneBossNavbar lang="en" client:load />
+  <ParallaxComponent lang="en" client:idle />
+  <TuneBossFeatures lang="en" client:visible />
+  <DownloadCTA lang="en" client:visible />
+  <StackedCircularFooter lang="en" client:visible />
+</Layout>
+

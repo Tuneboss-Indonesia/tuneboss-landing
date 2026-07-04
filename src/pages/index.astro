@@ -1,71 +1,17 @@
 ---
 import Layout from "../layouts/Layout.astro";
-import { Image } from "astro:assets";
-import tunebossLogo from "../../public/tuneboss-logo.png";
 import "../styles/global.css";
+import { ParallaxComponent } from "../components/ui/parallax-scrolling";
+import { TuneBossNavbar } from "../components/ui/resizable-navbar";
+import TuneBossFeatures from "../components/ui/tuneboss-features";
+import { DownloadCTA } from "../components/ui/download-cta";
+import { StackedCircularFooter } from "../components/ui/stacked-circular-footer";
 ---
 
-<Layout title="TuneBoss ID — Upcoming">
-  <main
-    id="upcoming-page"
-    class="relative flex min-h-screen w-full flex-col items-center justify-center overflow-hidden"
-  >
-    <!-- Background ambient glow -->
-    <div
-      class="animate-pulse-glow pointer-events-none absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 rounded-full"
-      style="width: 500px; height: 500px; background: radial-gradient(circle, rgba(232,122,30,0.25) 0%, transparent 70%);"
-      aria-hidden="true"
-    ></div>
-
-    <!-- Subtle grid pattern overlay -->
-    <div
-      class="pointer-events-none absolute inset-0 opacity-[0.03]"
-      style="background-image: linear-gradient(rgba(255,255,255,0.1) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.1) 1px, transparent 1px); background-size: 60px 60px;"
-      aria-hidden="true"
-    ></div>
-
-    <!-- Content -->
-    <div class="relative z-10 flex flex-col items-center gap-10 px-6">
-      <!-- Logo -->
-      <div class="animate-float" style="animation-delay: 0.2s;">
-        <Image
-          src={tunebossLogo}
-          alt="TuneBoss ID Logo"
-          class="animate-fade-in-up h-auto w-56 object-contain sm:w-72 md:w-80"
-          style="animation-delay: 0.3s; opacity: 0;"
-          loading="eager"
-        />
-      </div>
-
-      <!-- Decorative line -->
-      <div
-        class="animate-line-grow h-[1px] w-24 sm:w-32"
-        style="background: linear-gradient(90deg, transparent, rgba(232,122,30,0.8), transparent);"
-        aria-hidden="true"
-      ></div>
-
-      <!-- Upcoming text -->
-      <div class="flex flex-col items-center gap-3">
-        <h1
-          class="animate-letter-expand font-sqr text-xl tracking-[0.45em] font-medium uppercase sm:text-2xl md:text-3xl"
-          style="opacity: 0; animation-delay: 0.8s; color: rgba(255,255,255,0.9);"
-        >
-          Upcoming
-        </h1>
-        <p
-          class="animate-fade-in-up font-futura text-sm tracking-wider font-normal sm:text-base"
-          style="opacity: 0; animation-delay: 1.2s; color: rgba(255,255,255,0.4);"
-        >
-          Segera hadir untuk kamu
-        </p>
-      </div>
-    </div>
-
-    <!-- Bottom accent bar -->
-    <div
-      class="absolute bottom-0 left-0 h-[2px] w-full"
-      style="background: linear-gradient(90deg, transparent, var(--color-tuneboss-orange), transparent);"
-      aria-hidden="true"
-    ></div>
-  </main>
+<Layout title="TuneBoss ID | Beranda">
+  <TuneBossNavbar lang="id" client:load />
+  <ParallaxComponent lang="id" client:idle />
+  <TuneBossFeatures lang="id" client:visible />
+  <DownloadCTA lang="id" client:visible />
+  <StackedCircularFooter lang="id" client:visible />
 </Layout>

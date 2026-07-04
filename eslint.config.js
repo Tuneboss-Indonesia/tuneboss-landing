@@ -1,12 +1,14 @@
 import js from "@eslint/js";
 import tseslint from "typescript-eslint";
 import eslintPluginAstro from "eslint-plugin-astro";
+import eslintPluginAstroDoctor from "@santi020k/eslint-plugin-astro-doctor";
 import globals from "globals";
 
-export default tseslint.config(
+export default [
   js.configs.recommended,
   ...tseslint.configs.recommended,
   ...eslintPluginAstro.configs.recommended,
+  eslintPluginAstroDoctor.configs.recommended,
   {
     ignores: ["dist/", ".astro/", "node_modules/"],
   },
@@ -28,4 +30,4 @@ export default tseslint.config(
       "@typescript-eslint/no-explicit-any": "warn",
     },
   },
-);
+];
