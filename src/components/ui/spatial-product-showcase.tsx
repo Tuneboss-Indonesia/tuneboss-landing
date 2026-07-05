@@ -44,6 +44,25 @@ export interface ProductData {
   features: FeatureMetric[];
 }
 
+const TEXTS = {
+  id: {
+    title: 'Stand-alone ECU',
+    description: 'Unit kontrol mesin performa tinggi dengan fitur tuning canggih, dual band, dan Bluetooth bawaan untuk konektivitas tanpa batas.',
+    features: [
+      { label: 'Peningkatan Performa', value: 98, icon: '/images/perf.webp' },
+      { label: 'Presisi Tuning', value: 95, icon: '/images/tuning.webp' },
+    ],
+  },
+  en: {
+    title: 'Stand-alone ECU',
+    description: 'High-performance engine control unit with advanced tuning features, dual band, and built-in Bluetooth for seamless connectivity.',
+    features: [
+      { label: 'Performance Gain', value: 98, icon: '/images/perf.webp' },
+      { label: 'Tuning Precision', value: 95, icon: '/images/tuning.webp' },
+    ],
+  }
+};
+
 // Default Data (Easy to Modify Here)
 const PRODUCT_DATA: Record<ProductId, ProductData> = {
   ecu: {
@@ -59,8 +78,8 @@ const PRODUCT_DATA: Record<ProductId, ProductData> = {
     },
     stats: { connectionStatus: 'Bluetooth Connected', batteryLevel: 100 },
     features: [
-      { label: 'Performance Gain', value: 98, icon: '/images/perf.webp' },
-      { label: 'Tuning Precision', value: 95, icon: '/images/tuning.webp' },
+      { label: 'Placeholder', value: 0, icon: '/images/perf.webp' },
+      { label: 'Placeholder', value: 0, icon: '/images/tuning.webp' },
     ],
   },
 };
@@ -117,7 +136,7 @@ const ANIMATIONS = {
 };
 
 // =========================================
-// 3. SUB-COMPONENTS
+// 4. SUB-COMPONENTS
 // =========================================
 
 const BackgroundGradient = ({ isLeft }: { isLeft: boolean }) => (
@@ -240,10 +259,18 @@ const ProductDetails = ({ data, isLeft }: { data: ProductData; isLeft: boolean }
 // 4. MAIN COMPONENT
 // =========================================
 
-export default function SpatialProductShowcase() {
+export default function SpatialProductShowcase({ lang = 'id' }: { lang?: 'id' | 'en' }) {
   const activeSide = 'ecu';
   
-  const currentData = PRODUCT_DATA[activeSide];
+  const baseData = PRODUCT_DATA[activeSide];
+  const localizedData = TEXTS[lang];
+  const currentData = {
+    ...baseData,
+    title: localizedData.title,
+    description: localizedData.description,
+    features: localizedData.features
+  };
+
   const isLeft = true;
 
   return (
