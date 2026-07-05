@@ -3,7 +3,7 @@ import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import * as z from "zod";
 import { useState } from "react";
-import { CheckCircle } from "lucide-react";
+
 
 import { Button } from "./button";
 import { Input } from "./input";
@@ -20,7 +20,7 @@ interface Contact2Props {
 const getContactSchema = (isEn: boolean) => z.object({
   firstname: z.string().min(1, { message: isEn ? "First name is required" : "Nama depan wajib diisi" }),
   lastname: z.string().min(1, { message: isEn ? "Last name is required" : "Nama belakang wajib diisi" }),
-  email: z.string().min(1, { message: isEn ? "Email is required" : "Email wajib diisi" }).email({ message: isEn ? "Invalid email address" : "Alamat email tidak valid" }),
+  email: z.string().min(1, { message: isEn ? "Email is required" : "Email wajib diisi" }).regex(/^[^\s@]+@[^\s@]+\.[^\s@]+$/, { message: isEn ? "Invalid email address" : "Alamat email tidak valid" }),
   subject: z.string().min(1, { message: isEn ? "Subject is required" : "Subjek wajib diisi" }),
   message: z.string().min(1, { message: isEn ? "Message is required" : "Pesan wajib diisi" }),
 });
@@ -112,7 +112,7 @@ export const Contact2 = ({
               />
             </div>
           ) : (
-            <form onSubmit={handleSubmit(onSubmit)} className="mx-auto flex w-full max-w-screen-md flex-col gap-6 rounded-lg p-10 text-card-foreground">
+            <form onSubmit={handleSubmit(onSubmit)} className="mx-auto flex w-full max-w-screen-md flex-col gap-6 rounded-lg p-0 md:p-10 text-card-foreground">
               <div className="flex flex-col gap-4 sm:flex-row">
                 <div className="grid w-full items-center gap-1.5">
                   <Label htmlFor="firstname">{isEn ? "First Name" : "Nama Depan"} <span className="text-red-500">*</span></Label>
@@ -151,11 +151,8 @@ export const Contact2 = ({
           <div className="relative h-0 w-full pb-[75%] md:pb-[50%] lg:pb-[35%]">
             <iframe
               className="absolute left-0 top-0 h-full w-full"
-              frameBorder="0"
-              scrolling="no"
-              marginHeight={0}
-              marginWidth={0}
               loading="lazy"
+              sandbox="allow-scripts allow-popups"
               src="https://maps.google.com/maps?width=600&height=400&hl=en&q=tuneboss&t=&z=15&ie=UTF8&iwloc=B&output=embed"
               title="TuneBoss Location Map"
             />
