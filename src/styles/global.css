@@ -82,15 +82,38 @@ body {
   color: #ffffff;
 }
 
-::selection {
-  background-color: var(--color-tuneboss-orange);
-  color: #ffffff;
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--color-tuneboss-dark);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-tuneboss-orange);
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #f9a054;
 }
 
 /* ─── Upcoming Page Animations ─── */
 @keyframes float {
   0%, 100% { transform: translateY(0); }
   50% { transform: translateY(-12px); }
+}
+
+/* Chrome Autofill Background Fix */
+input:-webkit-autofill,
+input:-webkit-autofill:hover, 
+input:-webkit-autofill:focus, 
+input:-webkit-autofill:active {
+    -webkit-box-shadow: 0 0 0 30px white inset !important;
+    -webkit-text-fill-color: black !important;
 }
 
 @keyframes pulse-glow {

@@ -2,6 +2,7 @@
 import { ClientRouter } from "astro:transitions";
 import "../styles/global.css";
 import { JsonLd } from "../components/ui/json-ld";
+import { BackToTop } from "../components/ui/back-to-top";
 
 interface Props {
   title?: string;
@@ -106,5 +107,6 @@ const jsonLd = {
   </head>
   <body>
     <slot />
+    <BackToTop client:load />
   </body>
 </html>
