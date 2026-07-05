@@ -1,0 +1,20 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import "../../styles/global.css";
+import { TuneBossNavbar } from "../../components/ui/resizable-navbar";
+import { Contact2 } from "../../components/ui/contact-2";
+import { StackedCircularFooter } from "../../components/ui/stacked-circular-footer";
+---
+
+<Layout title="TuneBoss ID | Contact Us" lang="en">
+  <TuneBossNavbar lang="en" client:load />
+  
+  <main class="pt-20 min-h-screen bg-black text-white">
+    <Contact2 client:visible
+      title="Contact Us"
+      description="We are available for questions, feedback, or collaboration opportunities. Let us know how we can help!"
+    />
+  </main>
+
+  <StackedCircularFooter lang="en" client:visible />
+</Layout>

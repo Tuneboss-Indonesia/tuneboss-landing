@@ -331,8 +331,8 @@ export function TuneBossNavbar({ lang = 'id' }: { lang?: Language }) {
   const t = useTranslations(lang);
   const navItems = [
     { name: t('home'), link: lang === 'id' ? "/" : "/en/" },
-    { name: t('product'), link: lang === 'id' ? "/" : "/en/" },
-    { name: t('contact'), link: lang === 'id' ? "/" : "/en/" },
+    { name: t('product'), link: lang === 'id' ? "/#product" : "/en/#product" },
+    { name: t('contact'), link: lang === 'id' ? "/contact" : "/en/contact" },
   ];
 
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
