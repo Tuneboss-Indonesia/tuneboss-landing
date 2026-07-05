@@ -6,6 +6,7 @@ import { StackedCircularFooter } from "../components/ui/stacked-circular-footer"
 import { FramerCarousel } from "../components/ui/framer-carousel";
 import { ProductCarousel } from "../components/ui/product-carousel";
 import { HeroWithMarquee } from "../components/ui/cta-with-marquee";
+import SpatialProductShowcase from "../components/ui/spatial-product-showcase";
 
 const carouselItems = [
   { image: "/images/yamaha.webp", name: "Yamaha" },
@@ -38,7 +39,7 @@ const carouselItems = [
       <ProductCarousel client:visible items={carouselItems} options={{ loop: true, align: "center" }} />
     </section>
 
-    <section class="w-full py-10">
+    <section class="w-full pt-10">
       <div class="max-w-7xl mx-auto px-4 text-center">
         <h2 class="text-4xl md:text-5xl font-bold font-sqr text-white mb-4 uppercase">
           Produk <span class="text-orange-matte">Unggulan</span>
@@ -46,6 +47,10 @@ const carouselItems = [
         <p class="text-lg text-neutral-400 max-w-2xl mx-auto">
           Dapatkan performa maksimal dengan deretan produk terbaik dari TuneBoss.
         </p>
+      </div>
+      
+      <div>
+        <SpatialProductShowcase client:visible />
       </div>
     </section>
 

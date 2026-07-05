@@ -88,12 +88,12 @@ export function HeroWithMarquee({ lang = "id" }: { lang?: "id" | "en" }) {
   const t = texts[lang];
 
   return (
-    <div className="py-20 bg-black text-white flex items-center overflow-hidden relative">
+    <div className="py-10 md:py-20 bg-black text-white flex items-center overflow-hidden relative">
       <div className="container mx-auto px-6 lg:px-12">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           {/* Left Content */}
           <div className="space-y-6 min-w-0">
-            <h1 className="text-2xl md:text-3xl lg:text-4xl font-bold leading-tight font-sqr text-white break-words">
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight font-sqr text-white break-words">
               {t.title} <span className="text-orange-matte">{t.titleSpan}</span>
             </h1>
             <div className="space-y-2 text-gray-400 font-futura tracking-wide">
