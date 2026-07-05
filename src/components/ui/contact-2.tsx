@@ -55,14 +55,14 @@ export const Contact2 = ({
         <div className="mx-auto flex max-w-screen-xl flex-col justify-between gap-10 lg:flex-row lg:gap-20">
           <div className="mx-auto flex w-full max-w-sm flex-col justify-between gap-10">
             <div className="text-left">
-              <h1 className="mb-2 text-5xl font-semibold lg:mb-1 lg:text-6xl text-foreground font-sqr">
+              <h1 className="mb-2 text-5xl font-semibold lg:mb-1 lg:text-6xl text-orange-matte font-sqr tracking-tight">
                 {title}
               </h1>
               <p className="text-muted-foreground">{description}</p>
             </div>
             
             <div className="w-full">
-              <h3 className="mb-6 text-left text-2xl font-semibold text-foreground font-sqr">
+              <h3 className="mb-6 text-left text-3xl font-semibold text-orange-matte font-sqr tracking-tight">
                 {isEn ? "Contact Details" : "Detail Kontak"}
               </h3>
               <ul className="flex flex-col gap-4 text-foreground">
