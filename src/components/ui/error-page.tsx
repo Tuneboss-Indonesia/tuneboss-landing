@@ -12,11 +12,15 @@ interface ErrorPageProps {
   code?: string;
   description?: string;
   children?: React.ReactNode;
+  btnText?: string;
+  btnLink?: string;
 }
 
 export function ErrorPage({ 
   code = "404", 
   description = "The page you're looking for might have been \n moved or doesn't exist.",
+  btnText = "Go Home",
+  btnLink = "/",
   children
 }: ErrorPageProps) {
 	return (
@@ -47,10 +51,10 @@ export function ErrorPage({
 				<EmptyContent>
 					<div className="flex justify-center mt-4">
 						<Button asChild size="lg" className="bg-[#e87a1e] hover:bg-[#e87a1e]/90 text-white text-lg px-8 py-6">
-							<a href="/">
+							<a href={btnLink}>
 								<HomeIcon
 								className="size-5 mr-2" data-icon="inline-start" />
-								Go Home
+								{btnText}
 							</a>
 						</Button>
 					</div>

@@ -1,0 +1,20 @@
+---
+import { ErrorPage } from '../../components/ui/error-page';
+import { Image } from 'astro:assets';
+import "../../styles/global.css";
+---
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" type="image/png" href="/favicon.png" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="generator" content={Astro.generator} />
+    <title>404 - Not Found</title>
+  </head>
+  <body class="bg-background text-foreground antialiased">
+    <ErrorPage code="404" description="The page you're looking for might have been \n moved or doesn't exist." btnText="Go Home" btnLink="/en/">
+      <Image src="/tuneboss-logo.png" alt="TuneBoss Logo" width={200} height={96} class="h-16 md:h-24 w-auto object-contain" loading="eager" />
+    </ErrorPage>
+  </body>
+</html>
