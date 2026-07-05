@@ -65,6 +65,13 @@ export const ProductCarousel: React.FC<PropType> = (props) => {
       .on("reInit", setTweenNodes)
       .on("reInit", applyTween)
       .on("scroll", applyTween);
+
+    return () => {
+      emblaApi
+        .off("reInit", setTweenNodes)
+        .off("reInit", applyTween)
+        .off("scroll", applyTween);
+    };
   }, [emblaApi, setTweenNodes, applyTween]);
 
   return (
@@ -73,9 +80,9 @@ export const ProductCarousel: React.FC<PropType> = (props) => {
         {/* PENTING: Embla memiliki bug jika menggunakan CSS 'gap' pada mode loop. 
             Solusinya: Gunakan padding (px) pada masing-masing item, jangan gunakan gap di container! */}
         <div className="flex touch-pan-y touch-pinch-zoom">
-          {items.map((item, index) => (
+          {items.map((item) => (
             <div 
-              key={index}
+              key={item.name}
               className="flex-[0_0_80%] sm:flex-[0_0_60%] md:flex-[0_0_55%] lg:flex-[0_0_45%] px-10 md:px-16 flex flex-col justify-center items-center"
             >
               <div className="w-full flex flex-col justify-center items-center">

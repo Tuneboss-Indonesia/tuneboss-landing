@@ -23,7 +23,7 @@ const carouselItems = [
   <TuneBossNavbar lang="en" client:load />
   
   <main class="min-h-[60vh] bg-black text-white flex flex-col items-center justify-start pb-20">
-    <FramerCarousel client:load />
+    <FramerCarousel client:idle />
 
     <section class="w-full mt-10 py-20">
       <div class="max-w-7xl mx-auto px-4 text-center">
@@ -35,7 +35,7 @@ const carouselItems = [
         </p>
       </div>
       
-      <ProductCarousel client:load items={carouselItems} options={{ loop: true, align: "center" }} />
+      <ProductCarousel client:visible items={carouselItems} options={{ loop: true, align: "center" }} />
     </section>
 
     <HeroWithMarquee lang="en" client:visible />

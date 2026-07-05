@@ -67,24 +67,24 @@ const images2 = [
 
 
 
-export function HeroWithMarquee({ lang = "id" }: { lang?: "id" | "en" }) {
-  const texts = {
-    id: {
-      title: "UPGRADE PERFORMA",
-      titleSpan: "MOTORMU",
-      subtitle: "TuneBoss ECU",
-      desc: "Temukan produk unggulan kami sekarang juga di marketplace kesayangan Anda.",
-      btn: "BELI PRODUK",
-    },
-    en: {
-      title: "UPGRADE YOUR BIKE'S",
-      titleSpan: "PERFORMANCE",
-      subtitle: "TuneBoss ECU",
-      desc: "Discover our premium products right now on your favorite marketplace.",
-      btn: "BUY NOW",
-    },
-  };
+const texts = {
+  id: {
+    title: "UPGRADE PERFORMA",
+    titleSpan: "MOTORMU",
+    subtitle: "TuneBoss ECU",
+    desc: "Temukan produk unggulan kami sekarang juga di marketplace kesayangan Anda.",
+    btn: "BELI PRODUK",
+  },
+  en: {
+    title: "UPGRADE YOUR BIKE'S",
+    titleSpan: "PERFORMANCE",
+    subtitle: "TuneBoss ECU",
+    desc: "Discover our premium products right now on your favorite marketplace.",
+    btn: "BUY NOW",
+  },
+};
 
+export function HeroWithMarquee({ lang = "id" }: { lang?: "id" | "en" }) {
   const t = texts[lang];
 
   return (
