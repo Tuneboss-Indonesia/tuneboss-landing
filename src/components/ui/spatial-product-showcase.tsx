@@ -1,6 +1,6 @@
 'use client';
 
-import { motion, AnimatePresence, type Variants } from 'framer-motion';
+import { m as motion, LazyMotion, domAnimation, AnimatePresence, type Variants } from 'framer-motion';
 import { type LucideIcon } from 'lucide-react';
 
 // =========================================
@@ -263,7 +263,8 @@ export default function SpatialProductShowcase({ lang = 'id' }: { lang?: 'id' | 
   const isLeft = true;
 
   return (
-    <div className="relative w-full bg-transparent text-zinc-100 overflow-hidden selection:bg-zinc-800 flex flex-col items-center justify-center py-12 md:py-20">
+    <LazyMotion features={domAnimation}>
+      <div className="relative w-full bg-transparent text-zinc-100 overflow-hidden selection:bg-zinc-800 flex flex-col items-center justify-center py-12 md:py-20">
       
       <BackgroundGradient />
 
@@ -291,5 +292,6 @@ export default function SpatialProductShowcase({ lang = 'id' }: { lang?: 'id' | 
         </motion.div>
       </main>
     </div>
+    </LazyMotion>
   );
 }
