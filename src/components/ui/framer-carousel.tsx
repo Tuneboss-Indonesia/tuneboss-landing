@@ -59,6 +59,8 @@ export function FramerCarousel() {
                     alt={item.title}
                     className='w-full h-full object-cover select-none pointer-events-none'
                     draggable={false}
+                    loading="eager"
+                    decoding="sync"
                   />
                   {/* Gradient pelindung Navbar agar teks putih tetap terbaca walau gambar terang */}
                   <div className="absolute inset-x-0 top-0 h-32 md:h-48 bg-gradient-to-b from-black/80 via-black/40 to-transparent pointer-events-none" />

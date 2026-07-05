@@ -124,6 +124,8 @@ export function HeroWithMarquee({ lang = "id" }: { lang?: "id" | "en" }) {
                     src={src}
                     alt={`Produk ${idx + 1}`}
                     className="w-full h-full object-cover"
+                    loading="lazy"
+                    decoding="async"
                   />
                 </div>
               ))}
@@ -138,6 +140,8 @@ export function HeroWithMarquee({ lang = "id" }: { lang?: "id" | "en" }) {
                     src={src}
                     alt={`Produk ${idx + 4}`}
                     className="w-full h-full object-cover"
+                    loading="lazy"
+                    decoding="async"
                   />
                 </div>
               ))}

@@ -92,6 +92,8 @@ export const ProductCarousel: React.FC<PropType> = (props) => {
                       src={item.image} 
                       className="object-contain h-[95%] w-[95%] absolute drop-shadow-2xl" 
                       alt={item.name} 
+                      loading="lazy"
+                      decoding="async"
                     />
                   </div>
                 </div>
