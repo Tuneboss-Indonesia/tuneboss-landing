@@ -3,6 +3,16 @@ import Layout from "../../layouts/Layout.astro";
 import "../../styles/global.css";
 import { TuneBossNavbar } from "../../components/ui/resizable-navbar";
 import { StackedCircularFooter } from "../../components/ui/stacked-circular-footer";
+import { FramerCarousel } from "../../components/ui/framer-carousel";
+import { ProductCarousel } from "../../components/ui/product-carousel";
+import { HeroWithMarquee } from "../../components/ui/cta-with-marquee";
+
+const carouselItems = [
+  { image: "/images/yamaha.webp", name: "Yamaha" },
+  { image: "/images/honda.webp", name: "Honda" },
+  { image: "/images/suzuki.webp", name: "Suzuki" },
+  { image: "/images/kawasaki.webp", name: "Kawasaki" },
+];
 ---
 
 <Layout 
@@ -12,11 +22,23 @@ import { StackedCircularFooter } from "../../components/ui/stacked-circular-foot
 >
   <TuneBossNavbar lang="en" client:load />
   
-  <main class="pt-20 min-h-[60vh] bg-black text-white flex items-center justify-center">
-    <div class="text-center">
-      <h1 class="text-5xl lg:text-6xl font-bold font-sqr text-orange-matte mb-4 tracking-tight">Our Products</h1>
-      <p class="text-zinc-400">This page is currently under construction.</p>
-    </div>
+  <main class="min-h-[60vh] bg-black text-white flex flex-col items-center justify-start pb-20">
+    <FramerCarousel client:load />
+
+    <section class="w-full mt-10 py-20">
+      <div class="max-w-7xl mx-auto px-4 text-center">
+        <h2 class="text-4xl md:text-5xl font-bold font-sqr text-orange-matte mb-4 uppercase">
+          Supported Vehicles
+        </h2>
+        <p class="text-lg text-neutral-400 max-w-2xl mx-auto mb-12">
+          TuneBoss ECU supports a wide range of leading motorcycle models.
+        </p>
+      </div>
+      
+      <ProductCarousel client:load items={carouselItems} options={{ loop: true, align: "center" }} />
+    </section>
+
+    <HeroWithMarquee lang="en" client:visible />
   </main>
 
   <StackedCircularFooter lang="en" client:visible />

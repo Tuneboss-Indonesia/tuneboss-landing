@@ -123,8 +123,8 @@ export const NavBody = ({ children, className, visible }: NavBodyProps) => {
         minWidth: "800px",
       }}
       className={cn(
-        "relative z-[60] mx-auto hidden w-full max-w-7xl flex-row items-center justify-between self-start rounded-full px-4 py-2 lg:flex transition-colors duration-300 border",
-        visible ? "bg-black/90 border-white/10 backdrop-blur-md" : "bg-transparent border-transparent",
+        "relative z-[60] mx-auto hidden w-full max-w-7xl flex-row items-center justify-between self-start rounded-full px-4 py-2 lg:flex transition-colors duration-300",
+        visible ? "bg-black/90 backdrop-blur-md" : "bg-transparent",
         className,
       )}
     >
@@ -185,8 +185,8 @@ export const MobileNav = ({ children, className, visible }: MobileNavProps) => {
         damping: 50,
       }}
       className={cn(
-        "relative z-50 mx-auto flex w-full max-w-[calc(100vw-2rem)] flex-col items-center justify-between px-0 py-2 lg:hidden transition-colors duration-300 border",
-        visible ? "bg-black/90 border-white/10 backdrop-blur-md" : "bg-transparent border-transparent",
+        "relative z-50 mx-auto flex w-full max-w-[calc(100vw-2rem)] flex-col items-center justify-between px-0 py-2 lg:hidden transition-colors duration-300",
+        visible ? "bg-black/90 backdrop-blur-md" : "bg-transparent",
         className,
       )}
     >
@@ -288,7 +288,7 @@ const NAV_STYLES = `
 `;
 
 const baseStyles =
-  "px-6 py-2.5 rounded-[1rem] text-sm font-bold relative cursor-pointer inline-block text-center";
+  "px-6 py-2.5 rounded-[1rem] text-sm font-bold font-sqr relative cursor-pointer inline-block text-center";
 
 const variantStyles = {
   primary: "nav-btn-orange",
