@@ -2,6 +2,13 @@ import React, { useState, useEffect } from 'react';
 import { cn } from '../../lib/utils';
 import { ArrowUp } from 'lucide-react';
 
+const scrollToTop = () => {
+  window.scrollTo({
+    top: 0,
+    behavior: "smooth"
+  });
+};
+
 export const BackToTop = () => {
   const [isVisible, setIsVisible] = useState(false);
 
@@ -14,19 +21,13 @@ export const BackToTop = () => {
       }
     };
 
-    window.addEventListener("scroll", toggleVisibility);
+    window.addEventListener("scroll", toggleVisibility, { passive: true });
     return () => window.removeEventListener("scroll", toggleVisibility);
   }, []);
 
-  const scrollToTop = () => {
-    window.scrollTo({
-      top: 0,
-      behavior: "smooth"
-    });
-  };
-
   return (
     <button
+      type="button"
       onClick={scrollToTop}
       className={cn(
         "fixed bottom-6 right-6 z-[99] p-3 rounded-full bg-[#e87a1e] text-white shadow-[0_0_20px_rgba(232,122,30,0.5)] transition-all duration-300 hover:bg-[#f9a054] hover:scale-110 focus:outline-none",
