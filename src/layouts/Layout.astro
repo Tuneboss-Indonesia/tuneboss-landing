@@ -1,5 +1,7 @@
 ---
 import { ClientRouter } from "astro:transitions";
+import "../styles/global.css";
+import { JsonLd } from "../components/ui/json-ld";
 
 interface Props {
   title?: string;
@@ -98,7 +100,7 @@ const jsonLd = {
     <meta name="twitter:image" content={new URL(image, Astro.site || "https://tuneboss.id").href} />
 
     <!-- JSON-LD -->
-    <script type="application/ld+json" is:inline set:html={JSON.stringify(jsonLd)} />
+    <JsonLd data={jsonLd} />
 
     <title>{title}</title>
   </head>
