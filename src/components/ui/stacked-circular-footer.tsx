@@ -24,7 +24,7 @@ export function StackedCircularFooter({ lang = 'id' }: { lang?: Language }) {
       <div className="container mx-auto px-4 md:px-6">
         <div className="flex flex-col items-center">
           <div className="mb-8 p-4">
-            <img src="/tuneboss-logo.png" loading="lazy" decoding="async" alt="TuneBoss Logo" className="w-48 object-contain" />
+            <img src="/tuneboss-logo.png" loading="lazy" decoding="async" alt="TuneBoss Logo" width={192} height={90} className="w-48 object-contain" />
           </div>
           <nav className="mb-8 flex flex-wrap justify-center gap-6 font-futura text-gray-300">
             <a href={lang === 'id' ? "/" : "/en/"} className="hover:text-[#e87a1e] transition-colors">{t('home')}</a>
@@ -51,7 +51,7 @@ export function StackedCircularFooter({ lang = 'id' }: { lang?: Language }) {
             </a>
           </div>
           <div className="text-center mt-4">
-            <p className="text-sm text-gray-500 font-futura">
+            <p className="text-sm text-gray-400 font-futura">
               {t('copyright')}
             </p>
           </div>

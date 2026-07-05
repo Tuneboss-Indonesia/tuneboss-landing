@@ -261,7 +261,7 @@ export const NavbarLogo = () => {
         src="/tuneboss-logo.png"
         alt="logo"
         width={100}
-        height={30}
+        height={47}
       />
       {/* <span className="font-medium text-black dark:text-white">Startup</span> */}
     </a>

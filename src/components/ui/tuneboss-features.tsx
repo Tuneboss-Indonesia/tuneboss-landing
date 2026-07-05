@@ -162,6 +162,8 @@ export default function TuneBossFeatures({ lang = 'id' }: { lang?: Language }) {
             src="/images/bike.png" 
             loading="lazy"
             decoding="async"
+            width={551}
+            height={453}
             alt="TuneBoss Bike" 
             className="hero-reveal__bike absolute top-[50vh] left-[calc(50%-175px)] md:left-0 w-[350px] md:w-[600px] z-[60] pointer-events-none"
           />
@@ -193,9 +195,9 @@ export default function TuneBossFeatures({ lang = 'id' }: { lang?: Language }) {
               />
               <img 
                 src="/images/hp.png" 
-                loading="lazy"
+                loading="eager"
                 decoding="async"
-                alt="TuneBoss App" 
+                alt="TuneBoss App"
                 className="hero-reveal__parallax-hp absolute top-[-10%] left-[-2%] sm:left-[0%] lg:left-[5%] w-[90px] sm:w-[160px] md:w-[220px] lg:w-[320px]" 
               />
             </div>
