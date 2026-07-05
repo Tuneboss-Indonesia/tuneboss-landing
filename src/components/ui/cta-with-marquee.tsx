@@ -93,12 +93,12 @@ export function HeroWithMarquee({ lang = "id" }: { lang?: "id" | "en" }) {
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           {/* Left Content */}
           <div className="space-y-6 min-w-0">
-            <h1 className="text-4xl md:text-5xl lg:text-5xl xl:text-6xl font-bold leading-tight font-sqr text-white break-words">
+            <h1 className="text-2xl md:text-3xl lg:text-4xl font-bold leading-tight font-sqr text-white break-words">
               {t.title} <span className="text-orange-matte">{t.titleSpan}</span>
             </h1>
-            <div className="space-y-2 text-gray-400 font-sqr tracking-wide">
-              <p className="text-xl font-bold text-white">{t.subtitle}</p>
-              <p className="text-lg">{t.desc}</p>
+            <div className="space-y-2 text-gray-400 font-futura tracking-wide">
+              <p className="text-xl font-medium text-white">{t.subtitle}</p>
+              <p className="text-lg font-normal">{t.desc}</p>
             </div>
             <div className="pt-6">
               <a

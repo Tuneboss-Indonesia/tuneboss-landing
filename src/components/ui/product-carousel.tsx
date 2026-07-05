@@ -97,7 +97,7 @@ export const ProductCarousel: React.FC<PropType> = (props) => {
                     />
                   </div>
                 </div>
-                <h3 className="mt-8 text-3xl sm:text-4xl md:text-5xl font-bold font-sqr text-orange-matte uppercase tracking-widest text-center">
+                <h3 className="mt-8 text-2xl sm:text-3xl md:text-4xl font-bold font-sqr text-orange-matte uppercase tracking-widest text-center">
                   {item.name}
                 </h3>
               </div>
