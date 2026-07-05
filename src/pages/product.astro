@@ -1,0 +1,19 @@
+---
+import Layout from "../layouts/Layout.astro";
+import "../styles/global.css";
+import { TuneBossNavbar } from "../components/ui/resizable-navbar";
+import { StackedCircularFooter } from "../components/ui/stacked-circular-footer";
+---
+
+<Layout title="TuneBoss ID | Produk" lang="id">
+  <TuneBossNavbar lang="id" client:load />
+  
+  <main class="pt-20 min-h-[60vh] bg-black text-white flex items-center justify-center">
+    <div class="text-center">
+      <h1 class="text-4xl font-bold font-sqr text-[#e87a1e] mb-4">Produk Kami</h1>
+      <p class="text-zinc-400">Halaman sedang dalam tahap pengembangan.</p>
+    </div>
+  </main>
+
+  <StackedCircularFooter lang="id" client:visible />
+</Layout>
