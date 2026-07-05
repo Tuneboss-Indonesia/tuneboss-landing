@@ -30,6 +30,7 @@ npm run dev
 | Preview | `npm run preview` | Preview hasil build |
 | Lint | `npm run lint` | Jalankan ESLint |
 | Doctor | `npm run doctor` | Cek kesehatan React config |
+| Astro Doctor | `npm run astro-doctor` | Cek kesehatan Astro config |
 | Typecheck | `npm run typecheck` | Cek TypeScript types |
 
 ## Quality Check
