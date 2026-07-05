@@ -1,18 +1,7 @@
 'use client';
 
-import { useState, useMemo } from 'react';
 import { motion, AnimatePresence, type Variants } from 'framer-motion';
-import {
-  Battery,
-  Sliders,
-  ChevronRight,
-  Zap,
-  Bluetooth,
-  Wifi,
-  Music,
-  ShoppingCart,
-  type LucideIcon,
-} from 'lucide-react';
+import { type LucideIcon } from 'lucide-react';
 
 // =========================================
 // 1. CONFIGURATION & DATA TYPES
@@ -102,13 +91,13 @@ const ANIMATIONS = {
   },
   item: {
     hidden: { opacity: 0, y: 20, filter: 'blur(10px)' },
-    visible: {
-      opacity: 1,
-      y: 0,
+    visible: { 
+      opacity: 1, 
+      y: 0, 
       filter: 'blur(0px)',
-      transition: { type: 'spring', stiffness: 100, damping: 20 },
+      transition: { type: 'spring' as const, stiffness: 100, damping: 20 }
     },
-    exit: { opacity: 0, y: -10, filter: 'blur(5px)' },
+    exit: { opacity: 0, y: -20, filter: 'blur(10px)' }
   },
   image: (isLeft: boolean): Variants => ({
     initial: {
@@ -139,7 +128,7 @@ const ANIMATIONS = {
 // 4. SUB-COMPONENTS
 // =========================================
 
-const BackgroundGradient = ({ isLeft }: { isLeft: boolean }) => (
+const BackgroundGradient = () => (
   <div className="absolute inset-0 pointer-events-none">
     <motion.div
       animate={{
@@ -276,7 +265,7 @@ export default function SpatialProductShowcase({ lang = 'id' }: { lang?: 'id' | 
   return (
     <div className="relative w-full bg-transparent text-zinc-100 overflow-hidden selection:bg-zinc-800 flex flex-col items-center justify-center py-12 md:py-20">
       
-      <BackgroundGradient isLeft={isLeft} />
+      <BackgroundGradient />
 
       <main className="relative z-10 w-full px-6 flex flex-col justify-center max-w-7xl mx-auto">
         <motion.div
