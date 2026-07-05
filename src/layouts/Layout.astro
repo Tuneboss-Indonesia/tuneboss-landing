@@ -17,7 +17,7 @@ const {
   lang = "id",
   image = "/images/og-image.png",
   type = "website",
-  canonicalURL = new URL(Astro.url.pathname, Astro.site || "https://tuneboss.co.id").href,
+  canonicalURL = new URL(Astro.url.pathname, Astro.site || "https://tuneboss.id").href,
   keywords = "TuneBoss, TuneBoss ID, ECU Motor, Tuning Motor, Quickshifter, Data Logger, Aksesori Racing, Modifikasi Motor",
 } = Astro.props;
 
@@ -26,8 +26,8 @@ const currentPath = Astro.url.pathname;
 const isEn = currentPath.startsWith('/en');
 const basePath = isEn ? currentPath.replace(/^\/en/, '') || '/' : currentPath;
 
-const idUrl = new URL(basePath, Astro.site || "https://tuneboss.co.id").href;
-const enUrl = new URL(`/en${basePath === '/' ? '' : basePath}`, Astro.site || "https://tuneboss.co.id").href;
+const idUrl = new URL(basePath, Astro.site || "https://tuneboss.id").href;
+const enUrl = new URL(`/en${basePath === '/' ? '' : basePath}`, Astro.site || "https://tuneboss.id").href;
 const locale = lang === 'id' ? 'id_ID' : 'en_US';
 const siteName = "TuneBoss Indonesia";
 
@@ -35,8 +35,8 @@ const jsonLd = {
   "@context": "https://schema.org",
   "@type": "Organization",
   "name": "TuneBoss Indonesia",
-  "url": "https://tuneboss.co.id",
-  "logo": "https://tuneboss.co.id/images/tuneboss-logo.png",
+  "url": Astro.site ? Astro.site.toString() : "https://tuneboss.id",
+  "logo": new URL("/images/tuneboss-logo.png", Astro.site || "https://tuneboss.id").href,
   "description": "Penyedia solusi ECU stand-alone, quickshifter, dan aksesori tuning performa motor terbaik di Indonesia.",
   "address": {
     "@type": "PostalAddress",
@@ -86,7 +86,7 @@ const jsonLd = {
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
     <meta property="og:url" content={canonicalURL} />
-    <meta property="og:image" content={new URL(image, Astro.site || "https://tuneboss.co.id").href} />
+    <meta property="og:image" content={new URL(image, Astro.site || "https://tuneboss.id").href} />
     <meta property="og:type" content={type} />
     <meta property="og:locale" content={locale} />
     <meta property="og:site_name" content={siteName} />
@@ -95,10 +95,10 @@ const jsonLd = {
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content={title} />
     <meta name="twitter:description" content={description} />
-    <meta name="twitter:image" content={new URL(image, Astro.site || "https://tuneboss.co.id").href} />
+    <meta name="twitter:image" content={new URL(image, Astro.site || "https://tuneboss.id").href} />
 
     <!-- JSON-LD -->
-    <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
+    <script type="application/ld+json" is:inline set:html={JSON.stringify(jsonLd)} />
 
     <title>{title}</title>
   </head>
