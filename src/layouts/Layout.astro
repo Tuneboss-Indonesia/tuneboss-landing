@@ -5,13 +5,54 @@ interface Props {
   title?: string;
   description?: string;
   lang?: string;
+  image?: string;
+  type?: string;
+  canonicalURL?: string;
+  keywords?: string;
 }
 
 const {
   title = "TuneBoss ID - ECU & Motorcycle Tuning",
   description = "Marketplace produk ECU motor, tuning performa, quickshifter, data logger, dan aksesori racing TuneBoss Indonesia.",
   lang = "id",
+  image = "/images/og-image.png",
+  type = "website",
+  canonicalURL = new URL(Astro.url.pathname, Astro.site || "https://tuneboss.co.id").href,
+  keywords = "TuneBoss, TuneBoss ID, ECU Motor, Tuning Motor, Quickshifter, Data Logger, Aksesori Racing, Modifikasi Motor",
 } = Astro.props;
+
+// Determine hreflang links based on current path
+const currentPath = Astro.url.pathname;
+const isEn = currentPath.startsWith('/en');
+const basePath = isEn ? currentPath.replace(/^\/en/, '') || '/' : currentPath;
+
+const idUrl = new URL(basePath, Astro.site || "https://tuneboss.co.id").href;
+const enUrl = new URL(`/en${basePath === '/' ? '' : basePath}`, Astro.site || "https://tuneboss.co.id").href;
+const locale = lang === 'id' ? 'id_ID' : 'en_US';
+const siteName = "TuneBoss Indonesia";
+
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "TuneBoss Indonesia",
+  "url": "https://tuneboss.co.id",
+  "logo": "https://tuneboss.co.id/images/tuneboss-logo.png",
+  "description": "Penyedia solusi ECU stand-alone, quickshifter, dan aksesori tuning performa motor terbaik di Indonesia.",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "Jl. Ringroad Timur, Plumbon, Banguntapan",
+    "addressLocality": "Kabupaten Bantul",
+    "addressRegion": "Daerah Istimewa Yogyakarta",
+    "postalCode": "55281",
+    "addressCountry": "ID"
+  },
+  "contactPoint": {
+    "@type": "ContactPoint",
+    "telephone": "+62 817-5792-805",
+    "contactType": "customer service",
+    "email": "hello@tuneboss.co.id"
+  }
+};
 ---
 
 <!doctype html>
@@ -20,9 +61,16 @@ const {
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content={description} />
-    <meta name="theme-color" content="#e63946" />
+    <meta name="keywords" content={keywords} />
+    <meta name="theme-color" content="#e87a1e" />
+    <meta name="robots" content="index, follow" />
     
     <ClientRouter />
+
+    <link rel="canonical" href={canonicalURL} />
+    <link rel="alternate" hreflang="id" href={idUrl} />
+    <link rel="alternate" hreflang="en" href={enUrl} />
+    <link rel="alternate" hreflang="x-default" href={idUrl} />
 
     <!-- Favicon -->
     <link rel="icon" type="image/png" href="/favicon.png" />
@@ -37,9 +85,20 @@ const {
     <!-- OG -->
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
-    <meta property="og:image" content="/images/og-image.png" />
-    <meta property="og:type" content="website" />
-    <meta property="og:locale" content="id_ID" />
+    <meta property="og:url" content={canonicalURL} />
+    <meta property="og:image" content={new URL(image, Astro.site || "https://tuneboss.co.id").href} />
+    <meta property="og:type" content={type} />
+    <meta property="og:locale" content={locale} />
+    <meta property="og:site_name" content={siteName} />
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={new URL(image, Astro.site || "https://tuneboss.co.id").href} />
+
+    <!-- JSON-LD -->
+    <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
 
     <title>{title}</title>
   </head>
