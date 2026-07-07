@@ -69,6 +69,15 @@ const jsonLd = {
     <meta name="robots" content="index, follow" />
     
     <ClientRouter />
+    <script>
+      document.addEventListener("astro:page-load", () => {
+        if (window.location.hash) return;
+        const scrollToTop = () => window.scrollTo({ left: 0, top: 0, behavior: "instant" });
+
+        scrollToTop();
+        requestAnimationFrame(scrollToTop);
+      });
+    </script>
 
     <link rel="canonical" href={canonicalURL} />
     <link rel="alternate" hreflang="id" href={idUrl} />
