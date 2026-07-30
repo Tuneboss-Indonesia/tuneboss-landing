@@ -7,7 +7,7 @@ export const dictionary = {
     product: "Produk",
     contact: "Kontak",
     shop_now: "Mulai Belanja",
-    copyright: "© 2026 TuneBoss ID. Hak cipta dilindungi.",
+    copyright: "© 2026 TuneBoss ID",
 
     // TuneBoss Features
     performance_ecu: "ECU Motor Berperforma Tinggi",
