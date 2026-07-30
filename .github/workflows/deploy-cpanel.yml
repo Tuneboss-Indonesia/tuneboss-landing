@@ -38,16 +38,48 @@ jobs:
 
       - name: Add cPanel host key
         shell: bash
+        env:
+          CPANEL_HOST: ${{ secrets.CPANEL_SSH_HOST }}
+          CPANEL_PORT: ${{ secrets.CPANEL_SSH_PORT || '22' }}
         run: |
+          set -euo pipefail
           mkdir -p ~/.ssh
-          ssh-keyscan -p "${{ secrets.CPANEL_SSH_PORT || 22 }}" "${{ secrets.CPANEL_SSH_HOST }}" >> ~/.ssh/known_hosts
+          ssh-keyscan -p "$CPANEL_PORT" "$CPANEL_HOST" >> ~/.ssh/known_hosts
 
       - name: Deploy frontend to cPanel
         shell: bash
+        env:
+          CPANEL_HOST: ${{ secrets.CPANEL_SSH_HOST }}
+          CPANEL_PORT: ${{ secrets.CPANEL_SSH_PORT || '22' }}
+          CPANEL_USER: ${{ secrets.CPANEL_SSH_USER }}
+          CPANEL_DIR: ${{ secrets.CPANEL_FRONTEND_DIR }}
         run: |
-          rsync -az --delete \
-            --exclude='.env' \
-            --exclude='.env.*' \
-            --exclude='node_modules/' \
-            "${{ github.workspace }}/dist/" \
-            "${{ secrets.CPANEL_SSH_USER }}@${{ secrets.CPANEL_SSH_HOST }}:${{ secrets.CPANEL_FRONTEND_DIR }}/"
+          set -euo pipefail
+
+          archive="/home/$CPANEL_USER/.tuneboss-${GITHUB_SHA}.tar.gz"
+          tar -C dist -czf site.tar.gz .
+          ssh -p "$CPANEL_PORT" "$CPANEL_USER@$CPANEL_HOST" "cat > '$archive'" < site.tar.gz
+
+          ssh -p "$CPANEL_PORT" "$CPANEL_USER@$CPANEL_HOST" \
+            "bash -s -- '$CPANEL_DIR' '$archive' '$GITHUB_SHA'" <<'REMOTE'
+          set -euo pipefail
+
+          target=$1
+          archive=$2
+          stage="/home/$(whoami)/.tuneboss-stage-$3"
+          expected="/home/$(whoami)/public_html"
+
+          [ "$target" = "$expected" ] || {
+            echo "Refusing unsafe deploy target: $target"
+            exit 1
+          }
+
+          trap 'rm -rf -- "$stage"; rm -f -- "$archive"' EXIT
+          rm -rf -- "$stage"
+          mkdir -p "$stage" "$target"
+          tar -xzf "$archive" -C "$stage"
+          test -f "$stage/index.html"
+
+          find "$target" -mindepth 1 -maxdepth 1 ! -name '.well-known' -exec rm -rf -- {} +
+          cp -a "$stage/." "$target/"
+          REMOTE
