@@ -85,6 +85,6 @@ jobs:
           tar -xzf "$archive" -C "$stage"
           test -f "$stage/index.html"
 
-          find "$target" -mindepth 1 -maxdepth 1 ! -name '.well-known' -exec rm -rf -- {} +
+          find "$target" -mindepth 1 -maxdepth 1 ! -name '.well-known' ! -name 'apps' ! -name 'inventory' ! -name 'api-inventory' ! -name 'api.tuneboss.id' -exec rm -rf -- {} +
           cp -a "$stage/." "$target/"
           REMOTE
