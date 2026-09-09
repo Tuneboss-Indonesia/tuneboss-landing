@@ -30,7 +30,7 @@ export function StackedCircularFooter({ lang = 'id' }: { lang?: Language }) {
             <a href={lang === 'id' ? "/" : "/en/"} className="hover:text-[#e87a1e] transition-colors">{t('home')}</a>
             <a href={lang === 'id' ? "/product" : "/en/product"} className="hover:text-[#e87a1e] transition-colors">{t('product')}</a>
             <a href={lang === 'id' ? "/contact" : "/en/contact"} className="hover:text-[#e87a1e] transition-colors">{t('contact')}</a>
-            <a href="https://tuneboss-frontend.vercel.app" target="_blank" rel="noopener noreferrer" className="hover:text-[#e87a1e] transition-colors">{t('shop_now')}</a>
+            <a href="https://marketplace.tuneboss.id" target="_blank" rel="noopener noreferrer" className="hover:text-[#e87a1e] transition-colors">{t('shop_now')}</a>
           </nav>
           <div className="mb-8 flex space-x-4">
             <a href="https://www.facebook.com/tunebossid" target="_blank" rel="noopener noreferrer" className="flex items-center justify-center w-10 h-10 rounded-full bg-[#1877F2] text-white hover:scale-110 transition-transform">
