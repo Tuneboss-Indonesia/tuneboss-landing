@@ -102,7 +102,7 @@ export function HeroWithMarquee({ lang = "id" }: { lang?: "id" | "en" }) {
             </div>
             <div className="pt-6">
               <a
-                href="https://tuneboss-frontend.vercel.app"
+                href="https://marketplace.tuneboss.id"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="btn-modern-orange inline-flex items-center justify-center gap-3 px-10 py-4 rounded-[1.25rem] group focus:outline-none focus:ring-2 focus:ring-[#e87a1e] focus:ring-offset-2 focus:ring-offset-black font-bold uppercase tracking-widest text-white w-fit font-sqr"

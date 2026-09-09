@@ -356,7 +356,7 @@ export function TuneBossNavbar({ lang = 'id' }: { lang?: Language }) {
             >
               {lang === 'id' ? <FlagEN /> : <FlagID />}
             </a>
-            <NavbarButton href="https://tuneboss-frontend.vercel.app" target="_blank" rel="noopener noreferrer" variant="primary">
+            <NavbarButton href="https://marketplace.tuneboss.id" target="_blank" rel="noopener noreferrer" variant="primary">
               {t('shop_now')}
             </NavbarButton>
           </div>
@@ -396,7 +396,7 @@ export function TuneBossNavbar({ lang = 'id' }: { lang?: Language }) {
                 {lang === 'id' ? <FlagEN /> : <FlagID />}
               </a>
               <NavbarButton
-                href="https://tuneboss-frontend.vercel.app"
+                href="https://marketplace.tuneboss.id"
                 target="_blank"
                 rel="noopener noreferrer"
                 onClick={() => setIsMobileMenuOpen(false)}
