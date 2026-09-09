@@ -104,7 +104,7 @@ export default function TuneBossFeatures({ lang = 'id' }: { lang?: Language }) {
           )
         }
 
-        // Add dummy space at the end of the timeline so it stays pinned while reading
+        // Add spacer at timeline end so it stays pinned while reading
         tl.to({}, { duration: 0.5 })
 
         // 4. Parallax animation function matching Alice snippet

@@ -81,8 +81,8 @@ export const Contact2 = ({
                   </div>
                   <div>
                     <h4 className="font-bold">Email</h4>
-                    <a href="mailto:hello@tuneboss.co.id" className="text-sm underline hover:text-[#e87a1e]/80">
-                      hello@tuneboss.co.id
+                    <a href="mailto:hello@tuneboss.id" className="text-sm underline hover:text-[#e87a1e]/80">
+                      hello@tuneboss.id
                     </a>
                   </div>
                 </li>

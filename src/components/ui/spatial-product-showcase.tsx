@@ -67,8 +67,8 @@ const PRODUCT_DATA: Record<ProductId, ProductData> = {
     },
     stats: { connectionStatus: 'Bluetooth Connected', batteryLevel: 100 },
     features: [
-      { label: 'Placeholder', value: 0, icon: '/images/perf.webp' },
-      { label: 'Placeholder', value: 0, icon: '/images/tuning.webp' },
+      { label: 'Response Speed', value: 98, icon: '/images/perf.webp' },
+      { label: 'Tuning Control', value: 95, icon: '/images/tuning.webp' }
     ],
   },
 };
